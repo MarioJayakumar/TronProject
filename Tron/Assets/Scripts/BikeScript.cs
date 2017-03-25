@@ -265,7 +265,7 @@ public class BikeScript : MonoBehaviour
 			boostSystem.Clear ();
 			boostSystem.Stop ();
 		} else {
-			speed = 40;
+			speed = 50;
 			boostSystem.transform.position = GetComponent <Rigidbody> ().position;
 			boostSystem.transform.rotation = Quaternion.LookRotation (-direction);
 		}

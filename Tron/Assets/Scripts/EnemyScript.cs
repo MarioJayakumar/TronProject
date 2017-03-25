@@ -65,6 +65,7 @@ public class EnemyScript : BikeScript
 
 
 			timePassed += Time.deltaTime;
+			timeSinceLastBoost += Time.deltaTime;
 
 			//can only make a new movement every turnTick ticks
 			if (timePassed > turnTick) {
@@ -133,6 +134,7 @@ public class EnemyScript : BikeScript
 	//this method will decide how the enemy moves around 
 	private void decideMovement()
 	{
+		timePassed = 0;
 		//first thing to be checked is if there is an obstruction in front of the bike
 		RaycastHit hit;
 		if (Physics.Raycast (transform.position + direction, direction, 5)) {
@@ -155,26 +157,29 @@ public class EnemyScript : BikeScript
 		} else {
 			//if there is nothing in front of the bike, then we can randomly decide to turn or jump or boost
 			// 80% chance of doing nothing, 7% turn left, 7% turh right, 4% jump, 2% boost
-			int randResult = Random.Range(1, 5000);
-			if (randResult < 4960) {
+			int randResult = Random.Range(1, 1000);
+			if (randResult < 960) {
 				//DOING NOTHING
-			} else if (randResult < 4980) {
+			} else if (randResult < 970) {
 				//turn left
 				direction = Vector3.Cross (direction, new Vector3 (0, -1, 0));
 				lastTurn = transform.position;
 				createBeam (lastTurn, direction);
-			} else if (randResult < 4990) {
+			} else if (randResult < 980) {
 				//turn right
 				direction = Vector3.Cross (direction, new Vector3 (0, 1, 0));
 				lastTurn = transform.position;
 				createBeam (lastTurn, direction);
-			} else if (randResult < 5000) {
+			} else if (randResult < 990) {
 				//jump
 				jump();
 			} else {
 				//boost
-				if (boostCounter == -1)
+				if (boostCounter == -1) {
 					boostCounter = 0;
+					timeSinceLastBoost = 0;
+					boostSystem.Play ();
+				}
 
 			}
 		}

@@ -239,8 +239,12 @@ public class BikeScript : MonoBehaviour
 		}
 		beamList.Clear();
 
+		explosionSystem.Clear ();
 		explosionSystem.Play ();
 		gameObject.GetComponent<MeshRenderer> ().enabled = false;
+
+		boostSystem.Clear ();
+		boostSystem.Stop ();
 
 	}
 
@@ -254,21 +258,28 @@ public class BikeScript : MonoBehaviour
 		transform.position = new Vector3 (-75, 1, 50);
 		lastTurn = transform.position;
 		createBeam (transform.position, direction);
+
+		stopBoost ();
 	}
 
 	protected void boost()
 	{
 		boostCounter+= Time.deltaTime;
 		if (boostCounter > 5) {
-			boostCounter = -1;
-			speed = 20;
-			boostSystem.Clear ();
-			boostSystem.Stop ();
+			stopBoost ();
 		} else {
 			speed = 50;
 			boostSystem.transform.position = GetComponent <Rigidbody> ().position;
 			boostSystem.transform.rotation = Quaternion.LookRotation (-direction);
 		}
+	}
+
+	protected void stopBoost()
+	{
+		boostCounter = -1;
+		speed = 20;
+		boostSystem.Clear ();
+		boostSystem.Stop ();
 	}
 		
 

@@ -312,7 +312,7 @@ MonoBehaviour:
   generatedBeamMat: {fileID: 2100000, guid: 884ef865c78774172b0731a69b84f777, type: 2}
   explosionSystem: {fileID: 1386382456}
   boostSystem: {fileID: 2073326683}
-  turnTick: 0.1
+  turnTick: 0.07
 --- !u!54 &330223766
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3648,7 +3648,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 103283544
+  randomSeed: 471347688
   InitialModule:
     serializedVersion: 3
     enabled: 1

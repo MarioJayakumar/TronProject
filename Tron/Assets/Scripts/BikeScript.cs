@@ -25,10 +25,12 @@ public class BikeScript : MonoBehaviour
 	public Material generatedBeamMat;
 	public ParticleSystem explosionSystem;
 	public ParticleSystem boostSystem;
+	public Vector3 spawnPos;
 
 	// Use this for initialization
 	protected void Start ()
 	{
+		transform.position = spawnPos;
 		alive = true;
 		direction = new Vector3 (1, 0, 0);
 		//direction = direction * speed;
@@ -255,7 +257,7 @@ public class BikeScript : MonoBehaviour
 		gameObject.GetComponent<MeshRenderer> ().enabled = true;
 
 		direction = new Vector3 (1,0,0);
-		transform.position = new Vector3 (-75, 1, 50);
+		transform.position = spawnPos;
 		lastTurn = transform.position;
 		createBeam (transform.position, direction);
 
@@ -290,6 +292,24 @@ public class BikeScript : MonoBehaviour
 			jumping = true;
 			jumpPassed = 0;
 			fallPassed = 0;
+			lastTurn = transform.position;
+			createBeam (lastTurn, direction);
+		}
+	}
+
+	public void turnRight()
+	{
+		if (timePassed > timeKey) {
+			direction = Vector3.Cross (direction, new Vector3 (0, 1, 0));
+			lastTurn = transform.position;
+			createBeam (lastTurn, direction);
+		}
+	}
+
+	public void turnLeft()
+	{
+		if (timePassed > timeKey) {
+			direction = Vector3.Cross (direction, new Vector3 (0, -1, 0));
 			lastTurn = transform.position;
 			createBeam (lastTurn, direction);
 		}

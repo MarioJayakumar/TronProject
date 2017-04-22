@@ -126,7 +126,7 @@ public class EnemyScript : BikeScript
 		gameObject.GetComponent<MeshRenderer> ().enabled = true;
 
 		direction = new Vector3 (-1, 0, 0);
-		transform.position = new Vector3 (75, 1, -50);
+		transform.position = spawnPos;
 		lastTurn = transform.position;
 		createBeam (transform.position, direction);
 

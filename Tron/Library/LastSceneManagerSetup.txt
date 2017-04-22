@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/SpatialRender.unity
+- path: Assets/Scenes/Scene1.unity
   isLoaded: 1
   isActive: 1

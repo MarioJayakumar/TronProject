@@ -193,7 +193,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4366195872915344, guid: afed603f554da4b708496b7c0afcd90c, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 75
+      value: 28.6
       objectReference: {fileID: 0}
     - target: {fileID: 4366195872915344, guid: afed603f554da4b708496b7c0afcd90c, type: 2}
       propertyPath: m_LocalPosition.y
@@ -312,6 +312,7 @@ MonoBehaviour:
   generatedBeamMat: {fileID: 2100000, guid: 884ef865c78774172b0731a69b84f777, type: 2}
   explosionSystem: {fileID: 1386382456}
   boostSystem: {fileID: 2073326683}
+  spawnPos: {x: 28.6, y: 1, z: -50}
   turnTick: 0.07
 --- !u!54 &330223766
 Rigidbody:
@@ -414,6 +415,84 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c15d75fd48294c36b3686fdfd35fcf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &513053949
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 513053951}
+  - component: {fileID: 513053950}
+  m_Layer: 0
+  m_Name: VoiceManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &513053950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 513053949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f2795b3e072e1745a4f8c670d64284f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RecognizerStart: 0
+  KeywordsAndResponses:
+  - Keyword: Left
+    KeyCode: 0
+    Response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1811363082}
+          m_MethodName: turnLeft
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+  - Keyword: Right
+    KeyCode: 0
+    Response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1811363082}
+          m_MethodName: turnRight
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+--- !u!4 &513053951
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 513053949}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 90.524956, y: 65.72677, z: 60.08177}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &571309960 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1123290504707798, guid: e88852751c5f54c37b825505b6292fd1,
@@ -3227,7 +3306,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.32287318, g: 0.32352942, b: 0.31877163, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -3329,7 +3408,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1811363077}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -75, y: 1, z: 50}
+  m_LocalPosition: {x: -34.5, y: 1, z: 28.3}
   m_LocalScale: {x: 1.25, y: 1.75, z: 4}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3351,6 +3430,7 @@ MonoBehaviour:
   generatedBeamMat: {fileID: 2100000, guid: 2be08f42c765e44d992362c4899253c6, type: 2}
   explosionSystem: {fileID: 1386382456}
   boostSystem: {fileID: 2073326683}
+  spawnPos: {x: -34.5, y: 1, z: 28.3}
 --- !u!54 &1811363083
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3445,7 +3525,7 @@ Transform:
   m_GameObject: {fileID: 1897600513}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 20, y: 1, z: 20}
+  m_LocalScale: {x: 12, y: 1, z: 12}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1

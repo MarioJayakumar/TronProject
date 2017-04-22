@@ -264,8 +264,20 @@ public class BikeScript : MonoBehaviour
 		stopBoost ();
 	}
 
+	//this method is used for the voice command
+	public void voiceBoost()
+	{
+		if (boostCounter == -1 && timeSinceLastBoost > 12)
+		{
+			boostCounter = 0;
+			boostSystem.Play ();
+			timeSinceLastBoost = 0;
+		}
+	}
+
 	protected void boost()
 	{
+		
 		boostCounter+= Time.deltaTime;
 		if (boostCounter > 5) {
 			stopBoost ();
@@ -285,7 +297,7 @@ public class BikeScript : MonoBehaviour
 	}
 		
 
-	protected void jump()
+	public void jump()
 	{
 		if (!jumping && !falling) {
 			//gameObject.GetComponent<Rigidbody> ().AddForce (new Vector3(0,2000,0));
